@@ -9,6 +9,10 @@ import StorePage from "./pages/StorePage";
 import Dashboard from "./pages/Dashboard";
 import DashboardProducts from "./pages/DashboardProducts";
 import DashboardAnalytics from "./pages/DashboardAnalytics";
+import DashboardOrders from "./pages/DashboardOrders";
+import DashboardCustomers from "./pages/DashboardCustomers";
+import DashboardPayouts from "./pages/DashboardPayouts";
+import DashboardSettings from "./pages/DashboardSettings";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -26,7 +30,11 @@ const App = () => (
           <Route path="/@:username" element={<StorePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/products" element={<DashboardProducts />} />
+          <Route path="/dashboard/orders" element={<DashboardOrders />} />
+          <Route path="/dashboard/customers" element={<DashboardCustomers />} />
+          <Route path="/dashboard/payouts" element={<DashboardPayouts />} />
           <Route path="/dashboard/analytics" element={<DashboardAnalytics />} />
+          <Route path="/dashboard/settings" element={<DashboardSettings />} />
           <Route path="/login" element={<Login />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
