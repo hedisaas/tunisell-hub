@@ -13,6 +13,7 @@ import DashboardOrders from "./pages/DashboardOrders";
 import DashboardCustomers from "./pages/DashboardCustomers";
 import DashboardPayouts from "./pages/DashboardPayouts";
 import DashboardSettings from "./pages/DashboardSettings";
+import CreateStore from "./pages/CreateStore";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/dashboard/payouts" element={<DashboardPayouts />} />
           <Route path="/dashboard/analytics" element={<DashboardAnalytics />} />
           <Route path="/dashboard/settings" element={<DashboardSettings />} />
+          <Route path="/dashboard/create-store" element={<CreateStore />} />
           <Route path="/login" element={<Login />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

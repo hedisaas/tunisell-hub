@@ -1,6 +1,8 @@
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DollarSign, ShoppingBag, Users, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DollarSign, ShoppingBag, Users, TrendingUp, Plus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const stats = [
   {
@@ -61,15 +63,23 @@ const recentOrders = [
 ];
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+
   return (
     <DashboardLayout>
       <div className="p-4 md:p-6 lg:p-8">
         {/* Header */}
-        <div className="mb-6 md:mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold mb-2">Dashboard</h1>
-          <p className="text-sm md:text-base text-muted-foreground">
-            Welcome back! Here's what's happening with your store today.
-          </p>
+        <div className="mb-6 md:mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">Dashboard</h1>
+            <p className="text-sm md:text-base text-muted-foreground">
+              Welcome back! Here's what's happening with your store today.
+            </p>
+          </div>
+          <Button onClick={() => navigate("/dashboard/create-store")} className="w-full sm:w-auto">
+            <Plus className="mr-2 h-4 w-4" />
+            Create Store
+          </Button>
         </div>
 
         {/* Stats Grid */}
