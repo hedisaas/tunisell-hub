@@ -12,36 +12,36 @@ import { User, Store, Bell, Shield, CreditCard } from "lucide-react";
 export default function DashboardSettings() {
   return (
     <DashboardLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-6 lg:p-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Settings</h1>
-          <p className="text-muted-foreground">
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">Settings</h1>
+          <p className="text-sm md:text-base text-muted-foreground">
             Manage your account and store preferences
           </p>
         </div>
 
-        <Tabs defaultValue="profile" className="space-y-6">
-          <TabsList className="bg-secondary">
-            <TabsTrigger value="profile" className="gap-2">
-              <User className="h-4 w-4" />
-              Profile
+        <Tabs defaultValue="profile" className="space-y-4 md:space-y-6">
+          <TabsList className="bg-secondary w-full overflow-x-auto flex-nowrap justify-start">
+            <TabsTrigger value="profile" className="gap-1 md:gap-2 text-xs md:text-sm">
+              <User className="h-3 w-3 md:h-4 md:w-4" />
+              <span className="hidden sm:inline">Profile</span>
             </TabsTrigger>
-            <TabsTrigger value="store" className="gap-2">
-              <Store className="h-4 w-4" />
-              Store
+            <TabsTrigger value="store" className="gap-1 md:gap-2 text-xs md:text-sm">
+              <Store className="h-3 w-3 md:h-4 md:w-4" />
+              <span className="hidden sm:inline">Store</span>
             </TabsTrigger>
-            <TabsTrigger value="notifications" className="gap-2">
-              <Bell className="h-4 w-4" />
-              Notifications
+            <TabsTrigger value="notifications" className="gap-1 md:gap-2 text-xs md:text-sm">
+              <Bell className="h-3 w-3 md:h-4 md:w-4" />
+              <span className="hidden sm:inline">Notifications</span>
             </TabsTrigger>
-            <TabsTrigger value="security" className="gap-2">
-              <Shield className="h-4 w-4" />
-              Security
+            <TabsTrigger value="security" className="gap-1 md:gap-2 text-xs md:text-sm">
+              <Shield className="h-3 w-3 md:h-4 md:w-4" />
+              <span className="hidden sm:inline">Security</span>
             </TabsTrigger>
-            <TabsTrigger value="billing" className="gap-2">
-              <CreditCard className="h-4 w-4" />
-              Billing
+            <TabsTrigger value="billing" className="gap-1 md:gap-2 text-xs md:text-sm">
+              <CreditCard className="h-3 w-3 md:h-4 md:w-4" />
+              <span className="hidden sm:inline">Billing</span>
             </TabsTrigger>
           </TabsList>
 
@@ -51,15 +51,15 @@ export default function DashboardSettings() {
               <CardHeader>
                 <CardTitle>Profile Information</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-center gap-6">
+              <CardContent className="space-y-4 md:space-y-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                   <img
                     src="https://api.dicebear.com/7.x/avataaars/svg?seed=vendor"
                     alt="Avatar"
-                    className="h-20 w-20 rounded-full ring-4 ring-primary/20"
+                    className="h-16 w-16 sm:h-20 sm:w-20 rounded-full ring-4 ring-primary/20"
                   />
                   <div>
-                    <Button variant="outline" className="mb-2">
+                    <Button variant="outline" className="mb-2 w-full sm:w-auto">
                       Change Avatar
                     </Button>
                     <p className="text-xs text-muted-foreground">
@@ -68,7 +68,7 @@ export default function DashboardSettings() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name</Label>
                     <Input id="name" defaultValue="Mohamed Ali" />
@@ -100,7 +100,7 @@ export default function DashboardSettings() {
                   />
                 </div>
 
-                <Button className="bg-gradient-primary hover:opacity-90 transition-opacity">
+                <Button className="bg-gradient-primary hover:opacity-90 transition-opacity w-full sm:w-auto">
                   Save Changes
                 </Button>
               </CardContent>
@@ -113,7 +113,7 @@ export default function DashboardSettings() {
               <CardHeader>
                 <CardTitle>Store Settings</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-4 md:space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="store-name">Store Name</Label>
                   <Input id="store-name" defaultValue="My Store" />
@@ -149,7 +149,7 @@ export default function DashboardSettings() {
                   </div>
                 </div>
 
-                <Button className="bg-gradient-primary hover:opacity-90 transition-opacity">
+                <Button className="bg-gradient-primary hover:opacity-90 transition-opacity w-full sm:w-auto">
                   Update Store
                 </Button>
               </CardContent>
@@ -162,58 +162,58 @@ export default function DashboardSettings() {
               <CardHeader>
                 <CardTitle>Notification Preferences</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium mb-1">New Orders</p>
-                    <p className="text-sm text-muted-foreground">
+              <CardContent className="space-y-4 md:space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div className="flex-1">
+                    <p className="font-medium mb-1 text-sm md:text-base">New Orders</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">
                       Get notified when you receive a new order
                     </p>
                   </div>
                   <Switch defaultChecked />
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium mb-1">New Subscribers</p>
-                    <p className="text-sm text-muted-foreground">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div className="flex-1">
+                    <p className="font-medium mb-1 text-sm md:text-base">New Subscribers</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">
                       Get notified about new subscription sign-ups
                     </p>
                   </div>
                   <Switch defaultChecked />
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium mb-1">Payout Updates</p>
-                    <p className="text-sm text-muted-foreground">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div className="flex-1">
+                    <p className="font-medium mb-1 text-sm md:text-base">Payout Updates</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">
                       Updates on your withdrawal requests
                     </p>
                   </div>
                   <Switch defaultChecked />
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium mb-1">Product Reviews</p>
-                    <p className="text-sm text-muted-foreground">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div className="flex-1">
+                    <p className="font-medium mb-1 text-sm md:text-base">Product Reviews</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">
                       Get notified when customers review your products
                     </p>
                   </div>
                   <Switch />
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium mb-1">Marketing Emails</p>
-                    <p className="text-sm text-muted-foreground">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div className="flex-1">
+                    <p className="font-medium mb-1 text-sm md:text-base">Marketing Emails</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">
                       Receive tips, updates, and promotional content
                     </p>
                   </div>
                   <Switch />
                 </div>
 
-                <Button className="bg-gradient-primary hover:opacity-90 transition-opacity">
+                <Button className="bg-gradient-primary hover:opacity-90 transition-opacity w-full sm:w-auto">
                   Save Preferences
                 </Button>
               </CardContent>
@@ -226,7 +226,7 @@ export default function DashboardSettings() {
               <CardHeader>
                 <CardTitle>Security Settings</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-4 md:space-y-6">
                 <div className="space-y-4">
                   <h3 className="font-semibold">Change Password</h3>
                   <div className="space-y-4">
@@ -243,14 +243,14 @@ export default function DashboardSettings() {
                       <Input id="confirm-password" type="password" />
                     </div>
                   </div>
-                  <Button variant="outline">Update Password</Button>
+                  <Button variant="outline" className="w-full sm:w-auto">Update Password</Button>
                 </div>
 
                 <div className="pt-6 border-t border-border">
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <p className="font-medium mb-1">Two-Factor Authentication</p>
-                      <p className="text-sm text-muted-foreground">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                    <div className="flex-1">
+                      <p className="font-medium mb-1 text-sm md:text-base">Two-Factor Authentication</p>
+                      <p className="text-xs md:text-sm text-muted-foreground">
                         Add an extra layer of security to your account
                       </p>
                     </div>
@@ -259,16 +259,16 @@ export default function DashboardSettings() {
                 </div>
 
                 <div className="pt-6 border-t border-border">
-                  <h3 className="font-semibold mb-4">Active Sessions</h3>
+                  <h3 className="font-semibold mb-4 text-sm md:text-base">Active Sessions</h3>
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between p-4 rounded-lg bg-secondary">
-                      <div>
-                        <p className="font-medium mb-1">Current Session</p>
-                        <p className="text-sm text-muted-foreground">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 rounded-lg bg-secondary">
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium mb-1 text-sm md:text-base">Current Session</p>
+                        <p className="text-xs md:text-sm text-muted-foreground">
                           Chrome on Windows • Tunis, Tunisia
                         </p>
                       </div>
-                      <Badge variant="default" className="bg-green-500/10 text-green-500">
+                      <Badge variant="default" className="bg-green-500/10 text-green-500 w-fit">
                         Active
                       </Badge>
                     </div>
@@ -284,38 +284,38 @@ export default function DashboardSettings() {
               <CardHeader>
                 <CardTitle>Billing Information</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-4 md:space-y-6">
                 <div className="space-y-4">
-                  <h3 className="font-semibold">Payment Methods</h3>
+                  <h3 className="font-semibold text-sm md:text-base">Payment Methods</h3>
                   <div className="p-4 rounded-lg bg-secondary">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                          <CreditCard className="h-6 w-6 text-primary" />
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                      <div className="flex items-center gap-3 md:gap-4 flex-1 min-w-0">
+                        <div className="h-10 w-10 md:h-12 md:w-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                          <CreditCard className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                         </div>
-                        <div>
-                          <p className="font-medium mb-1">Bank Transfer</p>
-                          <p className="text-sm text-muted-foreground">
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium mb-1 text-sm md:text-base">Bank Transfer</p>
+                          <p className="text-xs md:text-sm text-muted-foreground truncate">
                             BIAT - ****1234 • Default method
                           </p>
                         </div>
                       </div>
-                      <Button variant="outline">Edit</Button>
+                      <Button variant="outline" className="w-full sm:w-auto">Edit</Button>
                     </div>
                   </div>
-                  <Button variant="outline">Add Payment Method</Button>
+                  <Button variant="outline" className="w-full sm:w-auto">Add Payment Method</Button>
                 </div>
 
                 <div className="pt-6 border-t border-border">
-                  <h3 className="font-semibold mb-4">Billing History</h3>
+                  <h3 className="font-semibold mb-4 text-sm md:text-base">Billing History</h3>
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between p-4 rounded-lg bg-secondary">
-                      <div>
-                        <p className="font-medium mb-1">Platform Fee - March 2024</p>
-                        <p className="text-sm text-muted-foreground">Paid on Mar 15, 2024</p>
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 rounded-lg bg-secondary">
+                      <div className="flex-1">
+                        <p className="font-medium mb-1 text-sm md:text-base">Platform Fee - March 2024</p>
+                        <p className="text-xs md:text-sm text-muted-foreground">Paid on Mar 15, 2024</p>
                       </div>
-                      <div className="text-right">
-                        <p className="font-semibold text-primary">45 TND</p>
+                      <div className="flex items-center gap-3">
+                        <p className="font-semibold text-primary text-sm md:text-base">45 TND</p>
                         <Button variant="ghost" size="sm" className="text-xs">
                           Download
                         </Button>

@@ -72,23 +72,23 @@ const statusColors = {
 export default function DashboardOrders() {
   return (
     <DashboardLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-6 lg:p-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 md:mb-8">
           <div>
-            <h1 className="text-3xl font-bold mb-2">Orders</h1>
-            <p className="text-muted-foreground">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">Orders</h1>
+            <p className="text-sm md:text-base text-muted-foreground">
               Manage and track all your sales
             </p>
           </div>
-          <Button variant="outline" className="gap-2">
+          <Button variant="outline" className="gap-2 w-full sm:w-auto">
             <Download className="h-4 w-4" />
             Export
           </Button>
         </div>
 
         {/* Filters */}
-        <div className="mb-6">
+        <div className="mb-4 md:mb-6">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
@@ -108,39 +108,43 @@ export default function DashboardOrders() {
               {orders.map((order) => (
                 <div
                   key={order.id}
-                  className="flex items-center justify-between p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
+                  className="flex flex-col gap-3 p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
                 >
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-2">
-                      <p className="font-semibold text-lg">{order.id}</p>
-                      <Badge
-                        variant="secondary"
-                        className={statusColors[order.status as keyof typeof statusColors]}
-                      >
-                        {order.status}
-                      </Badge>
-                      <Badge variant="outline" className="text-xs">
-                        {order.type}
-                      </Badge>
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <p className="font-semibold text-base md:text-lg">{order.id}</p>
+                        <Badge
+                          variant="secondary"
+                          className={statusColors[order.status as keyof typeof statusColors]}
+                        >
+                          {order.status}
+                        </Badge>
+                        <Badge variant="outline" className="text-xs">
+                          {order.type}
+                        </Badge>
+                      </div>
+                      <p className="font-medium mb-1 text-sm md:text-base">{order.product}</p>
+                      <p className="text-xs md:text-sm text-muted-foreground truncate">
+                        {order.customer}
+                      </p>
+                      <p className="text-xs text-muted-foreground truncate md:hidden">
+                        {order.email}
+                      </p>
                     </div>
-                    <p className="font-medium mb-1">{order.product}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {order.customer} • {order.email}
-                    </p>
+                    <Button variant="outline" size="icon" className="shrink-0">
+                      <Eye className="h-4 w-4" />
+                    </Button>
                   </div>
 
-                  <div className="text-right mr-6">
-                    <p className="font-bold text-xl text-primary mb-1">
+                  <div className="flex items-center justify-between pt-2 border-t border-border">
+                    <p className="font-bold text-lg md:text-xl text-primary">
                       {order.amount}
                     </p>
                     <p className="text-xs text-muted-foreground">
                       {order.date} at {order.time}
                     </p>
                   </div>
-
-                  <Button variant="outline" size="icon">
-                    <Eye className="h-4 w-4" />
-                  </Button>
                 </div>
               ))}
             </div>

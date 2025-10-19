@@ -40,76 +40,76 @@ const statusColors = {
 export default function DashboardPayouts() {
   return (
     <DashboardLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-6 lg:p-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 md:mb-8">
           <div>
-            <h1 className="text-3xl font-bold mb-2">Payouts</h1>
-            <p className="text-muted-foreground">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">Payouts</h1>
+            <p className="text-sm md:text-base text-muted-foreground">
               Manage your earnings and withdrawal requests
             </p>
           </div>
-          <Button className="bg-gradient-primary hover:opacity-90 transition-opacity gap-2">
+          <Button className="bg-gradient-primary hover:opacity-90 transition-opacity gap-2 w-full sm:w-auto">
             <Wallet className="h-4 w-4" />
             Request Payout
           </Button>
         </div>
 
         {/* Balance Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
           <Card className="border-border bg-gradient-card">
-            <CardContent className="p-6">
+            <CardContent className="p-4 md:p-6">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Available Balance</span>
-                <DollarSign className="h-5 w-5 text-primary" />
+                <span className="text-xs md:text-sm text-muted-foreground">Available Balance</span>
+                <DollarSign className="h-4 w-4 md:h-5 md:w-5 text-primary" />
               </div>
-              <p className="text-3xl font-bold mb-1">3,245 TND</p>
+              <p className="text-2xl md:text-3xl font-bold mb-1">3,245 TND</p>
               <p className="text-xs text-muted-foreground">Ready to withdraw</p>
             </CardContent>
           </Card>
 
           <Card className="border-border bg-gradient-card">
-            <CardContent className="p-6">
+            <CardContent className="p-4 md:p-6">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Pending</span>
-                <Clock className="h-5 w-5 text-primary" />
+                <span className="text-xs md:text-sm text-muted-foreground">Pending</span>
+                <Clock className="h-4 w-4 md:h-5 md:w-5 text-primary" />
               </div>
-              <p className="text-3xl font-bold mb-1">850 TND</p>
+              <p className="text-2xl md:text-3xl font-bold mb-1">850 TND</p>
               <p className="text-xs text-yellow-500">Processing</p>
             </CardContent>
           </Card>
 
           <Card className="border-border bg-gradient-card">
-            <CardContent className="p-6">
+            <CardContent className="p-4 md:p-6">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Total Withdrawn</span>
-                <TrendingUp className="h-5 w-5 text-primary" />
+                <span className="text-xs md:text-sm text-muted-foreground">Total Withdrawn</span>
+                <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-primary" />
               </div>
-              <p className="text-3xl font-bold mb-1">8,450 TND</p>
+              <p className="text-2xl md:text-3xl font-bold mb-1">8,450 TND</p>
               <p className="text-xs text-green-500">All time</p>
             </CardContent>
           </Card>
         </div>
 
         {/* Payment Method */}
-        <Card className="border-border bg-gradient-card mb-8">
+        <Card className="border-border bg-gradient-card mb-6 md:mb-8">
           <CardHeader>
             <CardTitle>Payment Method</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex items-center justify-between p-4 rounded-lg bg-secondary">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Wallet className="h-6 w-6 text-primary" />
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 rounded-lg bg-secondary">
+              <div className="flex items-center gap-3 md:gap-4">
+                <div className="h-10 w-10 md:h-12 md:w-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                  <Wallet className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                 </div>
-                <div>
-                  <p className="font-semibold mb-1">Bank Transfer</p>
-                  <p className="text-sm text-muted-foreground">
+                <div className="min-w-0">
+                  <p className="font-semibold mb-1 text-sm md:text-base">Bank Transfer</p>
+                  <p className="text-xs md:text-sm text-muted-foreground truncate">
                     BIAT - ****1234 • Mohamed Ali
                   </p>
                 </div>
               </div>
-              <Button variant="outline">Edit</Button>
+              <Button variant="outline" className="w-full sm:w-auto">Edit</Button>
             </div>
           </CardContent>
         </Card>
@@ -124,11 +124,11 @@ export default function DashboardPayouts() {
               {payouts.map((payout) => (
                 <div
                   key={payout.id}
-                  className="flex items-center justify-between p-4 rounded-lg bg-secondary"
+                  className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 rounded-lg bg-secondary"
                 >
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <p className="font-semibold text-lg">{payout.id}</p>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <p className="font-semibold text-base md:text-lg">{payout.id}</p>
                       <Badge
                         variant="secondary"
                         className={statusColors[payout.status as keyof typeof statusColors]}
@@ -136,7 +136,7 @@ export default function DashboardPayouts() {
                         {payout.status}
                       </Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-1">
+                    <p className="text-xs md:text-sm text-muted-foreground mb-1">
                       {payout.method}
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -144,8 +144,8 @@ export default function DashboardPayouts() {
                       {payout.processedAt && ` • Processed: ${payout.processedAt}`}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <p className="font-bold text-2xl text-primary">{payout.amount}</p>
+                  <div className="text-right sm:text-left">
+                    <p className="font-bold text-xl md:text-2xl text-primary">{payout.amount}</p>
                   </div>
                 </div>
               ))}
